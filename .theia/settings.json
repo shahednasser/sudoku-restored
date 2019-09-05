@@ -1,0 +1,4 @@
+{
+   "editor.autoSave": "on",
+   "typescript.tsdk": "node_modules/typescript/lib"
+}
