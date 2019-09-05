@@ -65,13 +65,23 @@ function create() {
             //add pointer events
             gameStatus.squares[i].smallSquares[k].on('pointerover', function(pointer, localX, localY, event) {
                 if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
+<<<<<<< HEAD
                     this.square.setFillStyle(0xF0F8FF);
+=======
+                    square.setFillStyle(0xF0F8FF);
+>>>>>>> 4b88f28d8af02d3aaeeaba3269e4b15ad72f92e5
                 }
             }, {square: gameStatus.squares[i].smallSquares[k]});
 
+<<<<<<< HEAD
             gameStatus.squares[i].smallSquares[k].on('pointerout', function(pointer, localX, localY, event){
                 if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
                     this.square.setFillStyle(0xFFFFFF);
+=======
+            gameStatus.squares[i].smallSqaures[k].on('pointerout', function(pointer, localX, localY, event){
+                if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
+                    square.setFillStyle(0xFFFFFF);
+>>>>>>> 4b88f28d8af02d3aaeeaba3269e4b15ad72f92e5
                 }
             }, {square: gameStatus.squares[i].smallSquares[k]});
 
