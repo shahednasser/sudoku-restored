@@ -5,6 +5,12 @@ const gameDimensions = {
     height: 800
 };
 
+const numberTextStyles = {
+    fontSize: '60px',
+    color: '#000',
+    align: 'center'
+};
+
 const gameStatus = {
     squares: [],
     clickedSquare: {bigSquare: -1, smallSquare: -1}
@@ -21,7 +27,8 @@ const config = {
   },
   scene: {
     preload: preload,
-    create: create
+    create: create,
+    update: update
   }
 };
 
@@ -33,6 +40,19 @@ function preload() {
 function create() {
     game.scale.pageAlignHorizontally = true;
     game.scale.pageAlignVertically = true;
+
+    //add input controls
+    gameStatus.keys = {
+        1: [this.input.keyboard.addKey('ONE'), this.input.keyboard.addKey('NUMPAD_ONE')],
+        2: [this.input.keyboard.addKey('TWO'), this.input.keyboard.addKey('NUMPAD_TWO')],
+        3: [this.input.keyboard.addKey('THREE'), this.input.keyboard.addKey('NUMPAD_THREE')],
+        4: [this.input.keyboard.addKey('FOUR'), this.input.keyboard.addKey('NUMPAD_FOUR')],
+        5: [this.input.keyboard.addKey('FIVE'), this.input.keyboard.addKey('NUMPAD_FIVE')],
+        6: [this.input.keyboard.addKey('SIX'), this.input.keyboard.addKey('NUMPAD_SIX')],
+        7: [this.input.keyboard.addKey('SEVEN'), this.input.keyboard.addKey('NUMPAD_SEVEN')],
+        8: [this.input.keyboard.addKey('EIGHT'), this.input.keyboard.addKey('NUMPAD_EIGHT')],
+        9: [this.input.keyboard.addKey('NINE'), this.input.keyboard.addKey('NUMPAD_NINE')],
+    }
 
     const bigSquareWidth = gameDimensions.width/3,
           bigSquareHeight = gameDimensions.height/3,
@@ -65,23 +85,13 @@ function create() {
             //add pointer events
             gameStatus.squares[i].smallSquares[k].on('pointerover', function(pointer, localX, localY, event) {
                 if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
-<<<<<<< HEAD
                     this.square.setFillStyle(0xF0F8FF);
-=======
-                    square.setFillStyle(0xF0F8FF);
->>>>>>> 4b88f28d8af02d3aaeeaba3269e4b15ad72f92e5
                 }
             }, {square: gameStatus.squares[i].smallSquares[k]});
 
-<<<<<<< HEAD
             gameStatus.squares[i].smallSquares[k].on('pointerout', function(pointer, localX, localY, event){
                 if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
                     this.square.setFillStyle(0xFFFFFF);
-=======
-            gameStatus.squares[i].smallSqaures[k].on('pointerout', function(pointer, localX, localY, event){
-                if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1){
-                    square.setFillStyle(0xFFFFFF);
->>>>>>> 4b88f28d8af02d3aaeeaba3269e4b15ad72f92e5
                 }
             }, {square: gameStatus.squares[i].smallSquares[k]});
 
@@ -102,6 +112,23 @@ function create() {
             positionX = bigSquareWidth/2;
         } else {
             positionX += bigSquareWidth;
+        }
+    }
+}
+
+function update() {
+    if(gameStatus.clickedSquare.bigSquare === -1 && gameStatus.clickedSquare.smallSquare === -1) {
+        return;
+    }
+    for(let key in gameStatus.keys) {
+        if(gameStatus.keys.hasOwnProperty(key)) {
+            let value = gameStatus.keys[key];
+            if(value[0].isDown || value[1].isDown) {
+                this.add.text(gameStatus.squares[gameStatus.clickedSquare.bigSquare].smallSquares[gameStatus.clickedSquare.smallSquare].x,
+                                gameStatus.squares[gameStatus.clickedSquare.bigSquare].smallSquares[gameStatus.clickedSquare.smallSquare].y,
+                                key, numberTextStyles);
+                return;
+            }
         }
     }
 }
