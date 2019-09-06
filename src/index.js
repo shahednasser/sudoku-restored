@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import Game from './Scenes/game';
+import Start from './Scenes/start';
 
 const gameDimensions = {
     width: 800,
@@ -8,7 +9,7 @@ const gameDimensions = {
 
 const numberTextStyles = {
     fontSize: '60px',
-    color: '#000',
+    color: '#222',
     align: 'center'
 };
 
@@ -25,4 +26,5 @@ const config = {
 
 const game = new Phaser.Game(config);
 
-game.scene.add('game', Game, true, {gameDimensions, numberTextStyles});
+game.scene.add('start', Start, true, {gameDimensions, numberTextStyles});
+game.scene.add('game', Game, false);
