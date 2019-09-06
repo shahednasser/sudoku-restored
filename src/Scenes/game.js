@@ -86,7 +86,7 @@ class Game extends Phaser.Scene {
                 // }
                 if(this.gameBoard[ind.row][ind.col] !== ".") {
                    this.setText(i, k, square.x, square.y, this.gameBoard[ind.row][ind.col]);
-                   square.setFillStyle(0xfbfcfd);
+                   square.setFillStyle(0xf1f3f6);
                    continue;
                 }
 
@@ -98,7 +98,7 @@ class Game extends Phaser.Scene {
                 const self = this;
                 this.gameStatus.squares[i].smallSquares[k].square.on('pointerover', function(pointer, localX, localY, event) {
                     if(self.gameStatus.clickedSquare.bigSquare === -1 && self.gameStatus.clickedSquare.smallSquare === -1){
-                        this.square.setFillStyle(0xeaf5ff);
+                        this.square.setFillStyle(0xf3f5f8);
                     }
                 }, {square: this.gameStatus.squares[i].smallSquares[k].square});
 
@@ -115,7 +115,7 @@ class Game extends Phaser.Scene {
                     } else {
                         self.gameStatus.clickedSquare.bigSquare = this.bigSquare;
                         self.gameStatus.clickedSquare.smallSquare = this.smallSquare;
-                        this.square.setFillStyle(0xb6dbff);
+                        this.square.setFillStyle(0xd5dde6);
                     }
                 }, {square: this.gameStatus.squares[i].smallSquares[k].square, bigSquare: i, smallSquare: k});
             }
