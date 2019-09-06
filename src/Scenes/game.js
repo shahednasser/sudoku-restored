@@ -86,7 +86,7 @@ class Game extends Phaser.Scene {
                 // }
                 if(this.gameBoard[ind.row][ind.col] !== ".") {
                    this.setText(i, k, square.x, square.y, this.gameBoard[ind.row][ind.col]);
-                   square.setFillStyle(0xf1f3f6);
+                   square.setFillStyle(0xf7f8f8);
                    continue;
                 }
 
@@ -115,7 +115,7 @@ class Game extends Phaser.Scene {
                     } else {
                         self.gameStatus.clickedSquare.bigSquare = this.bigSquare;
                         self.gameStatus.clickedSquare.smallSquare = this.smallSquare;
-                        this.square.setFillStyle(0xd5dde6);
+                        this.square.setFillStyle(0xc7cece);
                     }
                 }, {square: this.gameStatus.squares[i].smallSquares[k].square, bigSquare: i, smallSquare: k});
             }
