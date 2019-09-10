@@ -3,8 +3,8 @@ import Game from './Scenes/game';
 import Start from './Scenes/start';
 
 const gameDimensions = {
-    width: 800,
-    height: 800
+    width: 1000,
+    height: 1000
 };
 
 const numberTextStyles = {
@@ -18,6 +18,7 @@ const config = {
   parent: "sudoku-game",
   scale: {
     parent: 'game',
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: gameDimensions.width,
     height: gameDimensions.height
